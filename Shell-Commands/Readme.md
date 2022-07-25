@@ -56,4 +56,9 @@ Soln -->
 
 import shlex
 shlex.quote(user_input) --> it will quote the input in case of vulnerability
+shlex.split() --> it separates the string to possible arguments
 ```
+
+### Run commands and pass input
+
+```py
