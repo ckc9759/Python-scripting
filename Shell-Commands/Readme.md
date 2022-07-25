@@ -45,3 +45,15 @@ subprocess.run("ls",capture_output=true)
 `args` --> It is required for all calls and should be a string, sequence of program arguments.  
 If passing a single string with argument we need to put shell = true otherwise it will treat it as the name of file to be executed.
 
+```py
+user_input="a.txt"
+command = "cat{}".format(user_input)
+subprocess.run(command,shell=true,capture_output=true)
+
+## Vuln --> Shell Injection example ;pwd
+
+Soln --> 
+
+import shlex
+shlex.quote(user_input) --> it will quote the input in case of vulnerability
+```
