@@ -42,4 +42,6 @@ subprocess.run("ls",capture_output=true)
 
 ### Run commands by passing single strings 
 
-`args` --> It is required for all calls and should be a string, sequence of program arguments.
+`args` --> It is required for all calls and should be a string, sequence of program arguments.  
+If passing a single string with argument we need to put shell = true otherwise it will treat it as the name of file to be executed.
+
