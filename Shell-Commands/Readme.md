@@ -37,7 +37,7 @@ print(result.stdout.decode())
 subprocess.run("ls", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 Since python3.7
-subprocess.run("ls",capture_output=true)
+subprocess.run("ls",capture_output=True)
 ```
 
 ### Run commands by passing single strings 
@@ -48,7 +48,7 @@ If passing a single string with argument we need to put shell = true otherwise i
 ```py
 user_input="a.txt"
 command = "cat{}".format(user_input)
-subprocess.run(command,shell=true,capture_output=true)
+subprocess.run(command,shell=True,capture_output=True)
 
 ## Vuln --> Shell Injection example ;pwd
 
@@ -62,3 +62,27 @@ shlex.split() --> it separates the string to possible arguments
 ### Run commands and pass input
 
 ```py
+subprocess.run("python3 test.py", shell=True, capture_output=True, input="abc\ndef".encode()) //encoding to convert it into byte string
+
+// We can directly use the .encode() using universal_newline=True or text=True
+
+If we need to input a file,
+
+subprocess.run("python3 test.py", shell=True, capture_output=True, stdin=open("a.txt", 'r'))
+```
+
+### Time out parameter 
+
+```py
+subprocess.run(["sleep","5"],timeout=7) #sleep for 5 seconds 
+```
+
+### Run command and throw error if fail
+
+```py
+subprocess.run(["rm","xyz"],check=True)
+```
+
+---
+
+Thank you
